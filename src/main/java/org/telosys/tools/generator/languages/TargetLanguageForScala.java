@@ -83,7 +83,7 @@ public class TargetLanguageForScala extends TargetLanguage {
 			// example : id: Int, name: String"
 			if ( n > 0 ) sb.append(", ");
 			if (useDbName) {
-				sb.append( attribute.getDatabaseName() ) ; // arg name first
+				sb.append( replaceHash(attribute.getDatabaseName())) ; // arg name first
 			} else {
 				sb.append( attribute.getName() ) ; // arg name first
 			}

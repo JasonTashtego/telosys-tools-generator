@@ -81,7 +81,7 @@ public class TargetLanguageForKotlin extends TargetLanguage {
 			// example : "name: string?, age: int"
 			if ( n > 0 ) sb.append(", ");
 			if (useDbName) {
-				sb.append(attribute.getDatabaseName()); // arg name first
+				sb.append(replaceHash(attribute.getDatabaseName())); // arg name first
 			} else {
 				sb.append(attribute.getName()); // arg name first
 			}

@@ -81,7 +81,7 @@ public class TargetLanguageForGo extends TargetLanguage {
 		for ( AttributeInContext field : attributes ) {
 			// example : "name string, age int"
 			if ( n > 0 ) sb.append(", ");
-			sb.append( field.getName() ) ; // arg name first
+			sb.append( replaceHash(field.getName()) ) ; // arg name first
 			sb.append( " " ) ;
 			sb.append( field.getType() ) ; // arg type after 
 			n++;

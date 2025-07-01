@@ -144,7 +144,7 @@ public abstract class TargetLanguage {
 			// example : "name string, age int"
 			if ( n > 0 ) sb.append(", ");
 			if (useDbName) {
-				sb.append(field.getDatabaseName());
+				sb.append(replaceHash(field.getDatabaseName()));
 			} else {
 				sb.append(field.getName());
 			}
@@ -166,6 +166,20 @@ public abstract class TargetLanguage {
 		return commonArgumentsListWithType(attributes, false);
 	}
 
+	protected String replaceHash(String str) {
+		if(str == null || str.length() == 0) {
+			return str;
+		}
+		if (str.endsWith("#")) {
+			if(str.length() == 1 && str.charAt(0) == '#') {
+				return "Num";
+			}
+			return str.substring(0, str.length()-1) + "Num";
+		}
+		return str;
+	}
+
+
 	protected final String commonArgumentsListWithType( List<AttributeInContext> attributes, boolean useDbName ) {
 		if ( attributes == null ) return "";
 		StringBuilder sb = new StringBuilder();
@@ -175,7 +189,7 @@ public abstract class TargetLanguage {
 			sb.append( attribute.getType() ) ; // arg type first
 			sb.append( " " ) ;
 			if (useDbName) {
-				sb.append(attribute.getDatabaseName()); // arg name after type
+				sb.append( replaceHash( attribute.getDatabaseName())); // arg name after type
 			} else {
 				sb.append(attribute.getName()); // arg name after type
 			}
