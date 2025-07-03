@@ -97,7 +97,7 @@ public class TargetLanguageForJava extends TargetLanguage {
 			if ( n > 0 ) sb.append(", ");
 			sb.append( attribute.getWrapperType() ) ; //  arg type first : WRAPPER type
 			sb.append( " " ) ;
-			sb.append( attribute.getDatabaseName() ) ; // arg name after
+			sb.append( replaceHash(attribute.getDatabaseName()) ) ; // arg name after
 			n++;
 		}
 		return sb.toString();

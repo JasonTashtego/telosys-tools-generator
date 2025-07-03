@@ -82,7 +82,7 @@ public class TargetLanguageForPHP extends TargetLanguage {
 			// example : "function add($a, $b, $x)"
 			if ( n > 0 ) sb.append(", ");
 			// AFTER : the name "$xx"
-			sb.append( "$" ).append( attribute.getDatabaseName() ) ;
+			sb.append( "$" ).append( replaceHash(attribute.getDatabaseName()) ) ;
 			n++;
 		}
 		return sb.toString();
@@ -131,7 +131,7 @@ public class TargetLanguageForPHP extends TargetLanguage {
 				sb.append( " " ) ;
 			}
 			// argument name "$xx"
-			sb.append( "$" ).append( attribute.getDatabaseName() ) ;
+			sb.append( "$" ).append( replaceHash(attribute.getDatabaseName() )) ;
 			n++;
 		}
 		return sb.toString();
