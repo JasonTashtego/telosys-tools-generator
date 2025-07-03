@@ -122,7 +122,7 @@ public class TargetLanguageForCSharp extends TargetLanguage {
 //				sb.append( "?" ) ;  // nullable => add '?' at the end of the type, eg "String?"
 //			}
 			sb.append( " " ) ;
-			sb.append( attribute.getDatabaseName() ) ; // arg name after
+			sb.append( replaceHash(attribute.getDatabaseName()) ) ; // arg name after
 			n++;
 		}
 		return sb.toString();
