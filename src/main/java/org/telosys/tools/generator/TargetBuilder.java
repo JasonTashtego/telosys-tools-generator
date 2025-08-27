@@ -54,7 +54,13 @@ public class TargetBuilder {
 		if ( model != null ) {
 			variables.put(Target.VAR_MOD, model.getName()); // '_LC' and '_UC' set in Target
 		}
+
 		if ( entity != null ) {
+			// pass domain through if it's supplied.
+			if ( entity.getDomain() != null ) {
+				variables.put(Target.VAR_DOM, entity.getDomain());
+			}
+
 			// Target with entity ('ENT' var is set dynamically in Target)
 			return new Target(telosysToolsCfg.getDestinationFolderAbsolutePath(), targetDefinition, variables, entity); 
 		}

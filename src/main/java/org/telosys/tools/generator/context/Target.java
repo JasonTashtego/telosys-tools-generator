@@ -52,6 +52,7 @@ public class Target {
 	public static final String VAR_BUN = "BUN" ;
 	public static final String VAR_MOD = "MOD" ;
 	public static final String VAR_ENT = "ENT" ;
+	public static final String VAR_DOM = "DOM" ;
 	public static final String VAR_BEANNAME = "BEANNAME" ; // keep "BEANNAME" only for backward compatibility
 	
 	private final String destinationDirAbsolutePath ; // v 4.2.0 (instead of TelosysToolsCfg)
